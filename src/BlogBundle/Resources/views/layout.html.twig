@@ -43,10 +43,14 @@
                             <ul class="dropdown-menu">
                                 {% if app.user == null %}
                                     <li><a href="{{path("login")}}">Entrar</a></li>
-                                    {% endif %}
+                                {% endif %}
                                     {% if app.user != null %}
+                                    <li><a href="{{path("blog_index_tag")}}">Etiquetas</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{{path("blog_index_category")}}">Categorías</a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="{{path("logout")}}">Salir</a></li>
-                                    {% endif %}
+                                {% endif %}
                                 <li><a href="#">Ayuda</a></li>
                             </ul>
                         </li>

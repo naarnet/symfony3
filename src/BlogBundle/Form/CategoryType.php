@@ -9,8 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class TagType extends AbstractType
+class CategoryType extends AbstractType
 {
+
     /**
      * {@inheritdoc}
      */
@@ -22,26 +23,26 @@ class TagType extends AbstractType
                     "required" => "required",
                     "attr" => array(
                         "class" => "form-name form-control"
-                )))
+            )))
                 ->add('description', TextareaType::class, array(
                     'label' => 'Descripción',
                     "required" => "required",
                     "attr" => array(
                         "class" => "form-description form-control"
-                )))
+            )))
                 ->add('Guardar', SubmitType::class, array(
                     "attr" => array(
                         "class" => "form-submit btn btn-success"
-                )));
+        )));
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BlogBundle\Entity\Tag'
+            'data_class' => 'BlogBundle\Entity\Category'
         ));
     }
 
@@ -50,8 +51,7 @@ class TagType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'blogbundle_tag';
+        return 'blogbundle_category';
     }
-
 
 }
