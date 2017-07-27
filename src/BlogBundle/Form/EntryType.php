@@ -41,12 +41,12 @@ class EntryType extends AbstractType
                     "attr" => array(
                         "class" => "form-control"
                 )))
-                ->add('image', FileType::class, array(
-                    'label' => 'Imagen',
-                    "attr" => array(
-                        "class" => "form-control"
-                    )
-                ))
+//                ->add('image', FileType::class, array(
+//                    'label' => 'Imagen',
+//                    "attr" => array(
+//                        "class" => "form-control"
+//                    )
+//                ))
                 ->add('category', EntityType::class, array(
                     'class' => "BlogBundle:Category",
                     'label' => 'Categorias',

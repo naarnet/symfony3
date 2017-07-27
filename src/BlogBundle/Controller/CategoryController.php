@@ -21,11 +21,15 @@ class CategoryController extends Controller
 
     public function indexAction()
     {
+        var_dump($this->get('translator')->trans("btn_edit"));
         $em = $this->getDoctrine()->getManager();
         $categories_repo = $em->getRepository('BlogBundle:Category');
+        $entries_repo = $em->getRepository('BlogBundle:Entry');
+        $entries = $entries_repo->findAll();
         $categories = $categories_repo->findAll();
         return $this->render("BlogBundle:Category:index.html.twig", array(
-                    'categories' => $categories
+                    'categories' => $categories,
+                    'entries' => $entries
         ));
     }
 

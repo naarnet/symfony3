@@ -1,64 +1,68 @@
-login:
-    path: /login
-    defaults: { _controller: BlogBundle:User:login }
-    
-login_check:
-    path: /login_check
-
-logout:
-    path: /logout
-    
-blog_homepage:
-    path:     /
-    defaults: { _controller: BlogBundle:Default:index }
-
-# Tags Route
-
-blog_index_tag:
-    path:  /tags
-    defaults: { _controller: BlogBundle:Tag:index }
-    
-blog_add_tag:
-    path:  /tag/add
-    defaults: { _controller: BlogBundle:Tag:addTag }
-    
-blog_delete_tag:
-    path:  /tag/delete/{id}
-    defaults: { _controller: BlogBundle:Tag:delete }
-    
-# Category Route
-
-blog_delete_category:
-    path:  /category/delete/{id}
-    defaults: { _controller: BlogBundle:Category:delete }
-    
-blog_add_category:
-    path:  /category/add
-    defaults: { _controller: BlogBundle:Category:add}    
-    
-blog_index_category:
-    path:  /categories
-    defaults: { _controller: BlogBundle:Category:index }
-
-blog_edit_category:
-    path:  /category/edit/{id}
-    defaults: { _controller: BlogBundle:Category:edit }
-
-
-# Entry Route
-
-blog_index_entry:
-    path:  /entries
-    defaults: { _controller: BlogBundle:Entry:index }
-   
-blog_add_entry:
-    path:  /entry/add
-    defaults: { _controller: BlogBundle:Entry:add}       
-  
-blog_edit_entry:
-    path:  /entry/edit/{id}
-    defaults: { _controller: BlogBundle:Entry:edit }    
-    
-blog_delete_entry:
-    path:  /entry/delete/{id}
-    defaults: { _controller: BlogBundle:Entry:delete }    
+#login:
+#    path: /login
+#    defaults: { _controller: BlogBundle:User:login }
+#    
+#login_check:
+#    path: /login_check
+#
+#logout:
+#    path: /logout
+#    
+#blog_homepage:
+#    path:     /
+#    defaults: { _controller: BlogBundle:Default:index }
+#
+## Tags Route
+#
+#blog_index_tag:
+#    path:  /tags
+#    defaults: { _controller: BlogBundle:Tag:index }
+#    
+#blog_add_tag:
+#    path:  /tag/add
+#    defaults: { _controller: BlogBundle:Tag:addTag }
+#    
+#blog_delete_tag:
+#    path:  /tag/delete/{id}
+#    defaults: { _controller: BlogBundle:Tag:delete }
+#    
+## Category Route
+#
+#blog_delete_category:
+#    path:  /category/delete/{id}
+#    defaults: { _controller: BlogBundle:Category:delete }
+#    
+#blog_add_category:
+#    path:  /category/add
+#    defaults: { _controller: BlogBundle:Category:add}    
+#    
+#blog_index_category:
+#    path:  /categories
+#    defaults: { _controller: BlogBundle:Category:index }
+#
+#blog_edit_category:
+#    path:  /category/edit/{id}
+#    defaults: { _controller: BlogBundle:Category:edit }
+#
+#
+## Entry Route
+#
+#blog_index_entry:
+#    path:  /entries
+#    defaults: { _controller: BlogBundle:Entry:index }
+#   
+#blog_add_entry:
+#    path:  /entry/add
+#    defaults: { _controller: BlogBundle:Entry:add}       
+#  
+#blog_edit_entry:
+#    path:  /entry/edit/{id}
+#    defaults: { _controller: BlogBundle:Entry:edit }    
+#    
+#blog_delete_entry:
+#    path:  /entry/delete/{id}
+#    defaults: { _controller: BlogBundle:Entry:delete }    
+#    
+#blog_lang:
+#    path:  /lang/{_locale}
+#    defaults: { _controller: BlogBundle:Default:lang }    

@@ -2,10 +2,11 @@
 
 namespace BlogBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Entry
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\EntryRepository")
  */
 class Entry
 {
@@ -44,7 +45,7 @@ class Entry
      * @var \BlogBundle\Entity\User
      */
     private $user;
-    
+
     /**
      *
      * @var type 

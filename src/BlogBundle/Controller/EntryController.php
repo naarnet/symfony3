@@ -23,14 +23,17 @@ class EntryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories_repo = $em->getRepository('BlogBundle:Category');
+        
         $categories = $categories_repo->findAll();
-        return $this->render("BlogBundle:Category:index.html.twig", array(
+        
+        return $this->render("BlogBundle:Entry:index.html.twig", array(
                     'categories' => $categories
         ));
     }
 
     public function addAction(Request $request)
     {
+
         $this->_logger = $this->get('logger');
         $entry = new Entry();
         $form = $this->createForm(EntryType::class, $entry);
@@ -38,26 +41,55 @@ class EntryController extends Controller
 
         if ($form->isSubmitted()) {
 
-//            if ($form->isValid()) {
+            if ($form->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $category_repo = $em->getRepository('BlogBundle:Category');
+                $entry_repo = $em->getRepository('BlogBundle:Entry');
+
+
+                $entry = new Entry();
+                $entry->setTittle($form->get('tittle')->getData());
+                $entry->setContent($form->get('content')->getData());
+                $entry->setStatus($form->get('status')->getData());
+
+                //Upload file
+//                $file = $form['image']->getData();
+//                $extension = $file->gussExtension();
+//                $file_name = time().".".$extension;
+//                $file->move("uploads",$file_name);
+
+                $entry->setImage(null);
 //
-//                $em = $this->getDoctrine()->getManager();
-////                $category = new Category();
-//                $entry->setName($form->get('name')->getData());
-//                $entry->setDescription($form->get('description')->getData());
-//
-//                try {
-//                    $em->persist($entry);
-//                    $em->flush();
-//                    $status = "Se ha agregado correctamente!!!";
-//                } catch (\Exception $ex) {
-//                    $this->_logger->log(100, print_r($ex->getMessage(), true));
-//                    $status = "Ha ocurrido un error al añadir la categoría!!!";
-//                }
-//            } else {
-//                $status = "Formulario no es válido!!!";
-//            }
+                $category = $category_repo->find($form->get('category')->getData());
+                $entry->setCategory($category);
+
+                $user = $this->getUser();
+                $entry->setUser($user);
+                $this->_logger->log(100, print_r('es aqui', true));
+
+                try {
+                    $em->persist($entry);
+                    $em->flush();
+
+//                    $entry_repo->saveEntryTags(
+//                            $form->get('tags')->getData(),
+//                            $form->get('tittle')->getData(),
+//                            $category,
+//                            $user
+//                    );
+
+                    $status = "Se ha agregado la entrada correctamente!!!";
+                } catch (\Exception $ex) {
+
+                    $this->_logger->log(100, print_r($ex->getMessage(), true));
+                    $status = "Ha ocurrido un error al añadir la categoría!!!";
+                }
+            } else {
+                $status = "Formulario no es válido!!!";
+            }
             $this->_session->getFlashBag()->add('status', $status);
-            return $this->redirectToRoute('blog_index_category');
+            return $this->redirectToRoute('blog_index_entry');
         }
 
         return $this->render("BlogBundle:Entry:add.html.twig", array(

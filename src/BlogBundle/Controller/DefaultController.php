@@ -1,7 +1,8 @@
 <?php
 
 namespace BlogBundle\Controller;
-
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -55,8 +56,12 @@ class DefaultController extends Controller
 //        }
 
 
-        die('hola');
+//        die('hola');
         return $this->render('BlogBundle:Default:index.html.twig');
+    }
+    
+    public function langAction(Request $request){
+        return $this->redirectToRoute('blog_index_category');
     }
 
 }

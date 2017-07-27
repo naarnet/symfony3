@@ -1,4 +1,7 @@
 {% extends "BlogBundle::layout.html.twig" %}
+{% block menu %}
+    {% include "BlogBundle:Category:menu.categories.html.twig" with {'categories': categories}  %}
+{% endblock %}
 {% block content %}
     <div class="col-lg-6">
         <h2>Listado de Etiquetas</h2>
@@ -21,7 +24,7 @@
                 <tr>
                     <td>{{category.name }}</td>
                     <td>{{category.description }}</td>
-                    <td><a href="{{path('blog_edit_category',{'id' :category.id })}}" class="btn btn-warning">Editar</a></td>
+                    <td><a href="{{path('blog_edit_category',{'id' :category.id })}}" class="btn btn-warning">{% trans %}btn_edit{% endtrans %}</a></td>
                     <td>
                         {% if category.entries|length == 0 %}
                             <a href="{{path('blog_delete_category',{'id' :category.id })}}" class="btn btn-danger">Eliminar</a>
