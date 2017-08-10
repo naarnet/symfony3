@@ -4,8 +4,8 @@ namespace GestoriaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use BlogBundle\Entity\User;
-use BlogBundle\Form\UserType;
+use GestoriaBundle\Entity\User;
+use GestoriaBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends Controller
@@ -16,7 +16,6 @@ class UserController extends Controller
 
     public function __construct()
     {
-
         $this->_session = new Session();
     }
 
@@ -28,53 +27,32 @@ class UserController extends Controller
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted()) {
-            $status = "No te haz registrado correctamente";
-            if ($form->isValid()) {
-
-                $em = $this->getDoctrine()->getManager();
-                $email = $form->get("email")->getData();
-                $exist_user = $em->getRepository("BlogBundle:User")->findOneBy(array('email' => $email));
-                if ($exist_user === null) {
-                    $user = new User();
-                    $user->setName($form->get("name")->getData());
-                    $user->setSurname($form->get("surname")->getData());
-                    $user->setEmail($email);
-                    $user->setRole("ROLE_USER");
-                    $user->setImage(null);
-
-                    //Encoding Password
-                    $factory = $this->get("security.encoder_factory");
-                    $encoder = $factory->getEncoder($user);
-                    $password = $encoder->encodePassword($form->get("password")->getData(), $user->getSalt());
-                    $user->setPassword($password);
-
-                    try {
-                        $em->persist($user);
-                        $flush = $em->flush();
-                    } catch (Exception $ex) {
-                        $this->_logger->log(100, print_r($ex->getMessage(), true));
-                    }
-                    if ($flush === null) {
-                        $status = "Usuario creado correctamente";
-                    }
-                } else {
-                    $status = "Ya existe usuario con ese email.Intente con otro";
-                }
-            }
-            $this->_session->getFlashBag()->add("status", $status);
-        }
-
         return $this->render("GestoriaBundle:User:login.html.twig", array(
                     'error' => $error,
-                    'last_username' => $lastUsername,
-                    'form' => $form->createView()
+                    'last_username' => $lastUsername
         ));
     }
+    
+    /**
+         * Check the security 
+         *
+         * 
+         *
+         * @return 
+         */
+        public function securityCheckAction() {
+
+                // The security layer will intercept this request
+        }
+
+        /**
+         * Logout 
+         *
+         *
+         * @return message
+         */
+        public function logoutAction() {
+                
+        }
 
 }

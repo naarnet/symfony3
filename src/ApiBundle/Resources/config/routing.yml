@@ -1,0 +1,28 @@
+user:
+    type: rest
+    resource: "@ApiBundle/Controller/UserController.php"
+    name_prefix:  api_user
+    
+#client:
+#    api_rest:
+#    type: rest
+#    resource: "@AppBundle/Controller/ClientController.php"
+#    name_prefix:  api_client
+#employee:
+#    api_rest:
+#    type: rest
+#    resource: "@AppBundle/Controller/EmployeeController.php"
+#    name_prefix:  api_employee     
+#card:
+#    api_rest:
+#    type: rest
+#    resource: "@AppBundle/Controller/CardController.php"
+#    name_prefix:  api_card    
+#store:
+#    api_rest:
+#    type: rest
+#    resource: "@AppBundle/Controller/StoreController.php"
+#    name_prefix:  api_store         
+     
+
+

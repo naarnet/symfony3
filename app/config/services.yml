@@ -3,24 +3,32 @@
 parameters:
     #parameter_name: value
 
-services:
+#services:
+#    admin.user:
+#        class: AdminBundle\Admin\UserAdmin
+#        arguments: [~, GestoriaBundle\Entity\User, ~]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, label: User }
+#        public: true
+        
+        
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
-    app.helper_view:
-        class: AppBundle\Twig\HelperView
-        public: true
-        tags: 
-            - { name : twig.extension}
-    app.filter_view:
-        class: AppBundle\Twig\FilterView
-        public: true
-        tags: 
-            - { name : twig.extension}
-    app.locale_listener:
-        class: BlogBundle\EventListener\LocaleListener
-        arguments: ["%kernel.default_locale%"]
-        tags:
-            - { name: kernel.event_subscriber }
+#    app.helper_view:
+#        class: AppBundle\Twig\HelperView
+#        public: true
+#        tags: 
+#            - { name : twig.extension}
+#    app.filter_view:
+#        class: AppBundle\Twig\FilterView
+#        public: true
+#        tags: 
+#            - { name : twig.extension}
+#    app.locale_listener:
+#        class: BlogBundle\EventListener\LocaleListener
+#        arguments: ["%kernel.default_locale%"]
+#        tags:
+#            - { name: kernel.event_subscriber }
             
     
