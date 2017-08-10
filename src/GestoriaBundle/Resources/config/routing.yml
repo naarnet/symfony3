@@ -1,0 +1,17 @@
+gestoria_homepage:
+    path:     /
+    defaults: { _controller: GestoriaBundle:Default:index }
+    
+login:
+    path: /login
+    defaults: { _controller: GestoriaBundle:User:login }
+    
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+    
+
+    
+    

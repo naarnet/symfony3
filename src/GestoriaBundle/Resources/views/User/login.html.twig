@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestoría Login</title>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset('bundles/gestoria/css/style.css')}}">
+            <!-- Custom Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+            <!-- Theme CSS -->
+
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        {% endblock %}
+    </head>
+    <body>
+        <div class="body"></div>
+        <div class="grad"></div>
+        <div class="header">
+            <div>Gestoría<span>Login</span></div>
+        </div>
+        <br>
+        <div class="login">
+            <form action="{{path("login_check")}}" method="post">
+                <input type="text" id="username" placeholder="username" name="_username" value="{{last_username}}"><br>
+                <input type="password" placeholder="password" id="password" name="_password" value=""><br>
+                <input type="submit" value="Login">
+                <input type="hidden" name="_target_path" value="/login">
+            </form>
+        </div>
+    </body>
+</html>

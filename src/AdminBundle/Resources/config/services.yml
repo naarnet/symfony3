@@ -1,0 +1,7 @@
+services:
+    admin.user:
+        class: AdminBundle\Admin\UserAdmin
+        arguments: [~, GestoriaBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User }
+        public: true
