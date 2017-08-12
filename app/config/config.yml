@@ -93,4 +93,14 @@ fos_rest:
              - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: false }
              - { path: '^/', priorities: ['html'], fallback_format: html, prefer_extension: false }
 #Api Documentación            
-nelmio_api_doc: ~            
+nelmio_api_doc: ~           
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "%kernel.root_dir%/wkhtmltox/bin/wkhtmltopdf"
+        options:    []
+    image:
+        enabled:    true
+        binary:     /var/www/symony/wkhtmltox/bin/wkhtmltopdf
+        options:    []

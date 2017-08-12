@@ -12,3 +12,38 @@ sonata_block:
             contexts: [user]
         sonata.block.service.notification:
         sonata.block.service.rss:
+            
+sonata_admin:   
+#    security:
+#        handler: sonata.admin.security.handler.role
+    title:      TanTan
+#    title_logo:           bundles/admin/images/tantan-image.png
+    templates:
+        layout: AdminBundle::standard_layout.html.twig  
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [sonata_admin.group.backoffice]
+            -   
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <h2><code style="color:#428bca">Gestoría Arquitectónica</code></h2>          
+#            -   
+#                position: right   
+#                type: sonata.admin.block.admin_list
+#                settings:
+#                    groups: [sonata_admin.group.nomenclators]        
+                 
+           
+        groups:
+            sonata_admin.group.backoffice:
+                label: Backoffice
+                label_catalogue: AppBundle
+                items:
+                    - admin.user
+                    - admin.roles              

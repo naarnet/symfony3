@@ -100,7 +100,7 @@ class Role implements RoleInterface, \Serializable {
         }
 
         public function __toString() {
-                return $this->alias;
+                return (string)$this->alias;
         }
 
         public function getClass() {
