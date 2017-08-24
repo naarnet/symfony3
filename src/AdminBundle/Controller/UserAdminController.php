@@ -34,7 +34,7 @@ class UserAdminController extends Controller
         ));
 
         return new Response(
-                $this->get('knp_snappy.pdf')->getOutputFromHtml($html), array(
+                $this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array(
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'attachment; filename="file.pdf"'
                 )

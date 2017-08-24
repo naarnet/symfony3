@@ -4,6 +4,8 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
+        sonata.admin.block.search_result:
+            contexts:   [admin]    
         # ...
         sonata.user.block.menu:
         sonata.user.block.account:
@@ -16,30 +18,23 @@ sonata_block:
 sonata_admin:   
 #    security:
 #        handler: sonata.admin.security.handler.role
-    title:      TanTan
+    title:      Consultoría Gestoría
 #    title_logo:           bundles/admin/images/tantan-image.png
     templates:
         layout: AdminBundle::standard_layout.html.twig  
     dashboard:
         blocks:
-            -
-                position: left
-                type: sonata.admin.block.admin_list
-                settings:
-                    groups: [sonata_admin.group.backoffice]
+#            -
+#                position: left
+#                type: sonata.admin.block.admin_list
+#                settings:
+#                    groups: [sonata_admin.group.backoffice]
             -   
-                position: right
+                position: center
                 type: sonata.block.service.text
                 settings:
                     content: >
-                        <h2><code style="color:#428bca">Gestoría Arquitectónica</code></h2>          
-#            -   
-#                position: right   
-#                type: sonata.admin.block.admin_list
-#                settings:
-#                    groups: [sonata_admin.group.nomenclators]        
-                 
-           
+                        <h2><code style="color:#428bca">Consultoría y Gestoría Urbana</code></h2>          
         groups:
             sonata_admin.group.backoffice:
                 label: Backoffice
@@ -47,3 +42,9 @@ sonata_admin:
                 items:
                     - admin.user
                     - admin.roles              
+            sonata_admin.group.gestor:
+                label: Gestor
+                label_catalogue: AppBundle
+#                items:
+#                    - admin.user
+#                    - admin.roles              

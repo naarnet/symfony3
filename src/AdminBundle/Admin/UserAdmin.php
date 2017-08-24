@@ -51,6 +51,21 @@ class UserAdmin extends Admin
                 ->add('lastname', 'text', array('label' => 'Apellidos'))
                 ->add('email', 'email', array('label' => 'Correo Electrónico'))
                 ->end();
+        $formMapper
+                ->with('Credenciales', array(
+                    'class' => 'col-md-6',
+                    'box_class' => 'box box-solid box-danger',
+                    'description' => 'La contraseña debe ser de 6 dígitos',))
+                ->add('password', 'repeated', array(
+                    'type' => 'password',
+                    'required' => true,
+                    'first_options' => array('label' => 'Contraseña'),
+                    'second_options' => array('label' => 'Confirmación de Contraseña'),))
+                ->add('user_roles', null, array(
+                    'label' => 'Rol',
+                    'required' => true,
+                    'help' => 'Por favor asigne un Rol'))
+                ->end();
     }
 
     /**

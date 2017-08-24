@@ -98,9 +98,9 @@ nelmio_api_doc: ~
 knp_snappy:
     pdf:
         enabled:    true
-        binary:     "%kernel.root_dir%/wkhtmltox/bin/wkhtmltopdf"
+        binary:     "%kernel.root_dir%/wkhtmltox/wkhtmltopdf"
         options:    []
     image:
         enabled:    true
-        binary:     /var/www/symony/wkhtmltox/bin/wkhtmltopdf
+        binary:     /var/www/symony/wkhtmltox/wkhtmltoimage
         options:    []
