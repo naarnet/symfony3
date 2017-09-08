@@ -18,8 +18,8 @@ sonata_block:
 sonata_admin:   
 #    security:
 #        handler: sonata.admin.security.handler.role
-    title:      Consultoría Gestoría
-#    title_logo:           bundles/admin/images/tantan-image.png
+    title:      ArquiGestor
+    title_logo:           bundles/gestoria/img/gestoria.jpg
     templates:
         layout: AdminBundle::standard_layout.html.twig  
     dashboard:
@@ -34,7 +34,7 @@ sonata_admin:
                 type: sonata.block.service.text
                 settings:
                     content: >
-                        <h2><code style="color:#428bca">Consultoría y Gestoría Urbana</code></h2>          
+                        <h2><code style="color:#428bca;padding-left: 289px;">Consultoría y Gestoría Urbana</code></h2>          
         groups:
             sonata_admin.group.backoffice:
                 label: Backoffice
@@ -43,8 +43,8 @@ sonata_admin:
                     - admin.user
                     - admin.roles              
             sonata_admin.group.gestor:
-                label: Gestor
+                label: Gestoría
                 label_catalogue: AppBundle
-#                items:
-#                    - admin.user
+                items:
+                    - admin.work
 #                    - admin.roles              

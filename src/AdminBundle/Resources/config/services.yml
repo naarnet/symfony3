@@ -11,4 +11,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Roles }
         public: true
+    admin.work:
+        class: AdminBundle\Admin\WorkAdmin
+        arguments: [~, GestoriaBundle\Entity\Work, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Obras }
+        public: true
         

@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new AdminBundle\AdminBundle(),
             new Spraed\PDFGeneratorBundle\SpraedPDFGeneratorBundle(),
+            new Addressable\Bundle\AddressableBundle(),
 
         ];
 

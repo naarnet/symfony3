@@ -40,6 +40,8 @@ framework:
 
 # Twig Configuration
 twig:
+    form_themes:
+        - 'AddressableBundle:Form:fields.html.twig'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
@@ -74,6 +76,7 @@ swiftmailer:
     spool: { type: memory }
     
 assetic:
+    bundles: ['AddressableBundle']
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
